@@ -46,10 +46,22 @@ def make_move(field: list, player: str) -> None:
             field[cell_num - 1] = player
             break
 
-def main():
+def main() -> None:
+    '''
+    создает поле
+    
+    '''
     field = get_field()
     moves = 1
     while moves <= 9:
         draw_fielnd(field)
-        make_move(field, PLAYER_1)
+        if moves % 2:
+            make_move(field, PLAYER_1)
+        else:
+            make_move(field, PLAYER_2)
+        moves += 1
+    else: 
+        draw_fielnd(field)   
+        print('Ничья!')
+
 main()
